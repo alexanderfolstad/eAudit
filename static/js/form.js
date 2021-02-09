@@ -61,15 +61,8 @@
 //
 // });
 
-// AKSEL LØSNING
 $(document).ready(function() {
-//form1
-// 		$('.superform').on('submit', function(event) {
-// 			var submitForm = $(this);
-//    			$(document).scrollTop(submitForm.parent().next().offset().top);
-//   		// $(this).parent().next() // this is the next div container.
-//     		return false;
-// 		});
+// hide and scroll
         $('.superform').on('submit', function(event) {
                 var submitForm = $(this);
                 submitForm.find('[type="submit"]').attr('disabled','disabled');
@@ -96,6 +89,7 @@ $(document).ready(function() {
                                 //$('#errorAlert').hide();
                                 //$('#fade1').fadeTo("slow", 0.10);
               submitForm.fadeTo("slow",0.1);
+              $(document).scrollTop(submitForm.parent().next().offset().top);
                         }
 
                 });
