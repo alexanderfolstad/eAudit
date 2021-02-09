@@ -4,91 +4,76 @@
     <meta charset="UTF-8">
     <title>Another Snus Factory</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.16/dist/css/uikit.min.css" />
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.6.16/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.6.16/dist/js/uikit-icons.min.js"></script>
     <script src = "http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin = "anonymous"></script>
     <script type = text/javascript src = "{{
         url_for('static', filename = 'js/jquery.js') }}"></script>
-    <script href="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <script src="{{ url_for('static', filename='js/form.js') }}"></script>
 </head>
-<body style="background-color: #F0F0F0;">
+<body style="background-color: #F0F0F0; min-height: 100vh;">
 
 
 <!--<div class="jumbotron text-center" style="height: 120px;background-image: url('{{url_for('static', filename='asf.png')}}');background-repeat: no-repeat;">--!>
-<div class="jumbotron text-center" style="height: 120px;">
-    <br><h1 class="h1header" style="">e-Audit</h1>
-</div>
-	<div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
-	<div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+
+<div class="uk-navbar-container uk-margin-bottom">
+
+	<div class="uk-container uk-container-expand">
+		<nav class="uk-navbar">
+			<div class="uk-navbar-left">
+				<a href="/" class="uk-navbar-item">
+					<img class="uk-animation-scale-up" style="max-height: 60px;" src="{{url_for('static', filename='asf.png')}}" />
+				</a>
+			</div>
+			<div class="uk-navbar-right">
+				<span class="uk-h2">
+					e-Audit
+				</span>
+			</div>
+
+		</nav>
+	</div>
+	</div>
+<div class="uk-container">
 {% if outlet == 0 %}
-<div>Du har kommet et sted du ikke burde være.</div>
+    <h1 class="uk-title uk-text-center">Du har kommet et sted du ikke burde være.</h1>
 {% else %}
-<div class="outlet">{{outlet}}</div>
-&nbsp;<br>
-<!--
+<h1 class="uk-title uk-text-center uk-animation-scale-up">{{outlet}}</h1>
+    	<div class="uk-grid uk-child-width-1-4@m uk-child-width-1-2@s uk-text-center uk-grid-small" uk-grid uk-height-match="target: > div > .uk-card">
+
 {% for audit in audits %}
 
-
-<div class="SKU"><form class="form-inline" id="form{{audit[3]}}">
+<div>
+<div class="uk-card uk-card-default uk-card-body uk-animation-scale-up" style="padding-top: 10px;padding-bottom:15px;"><form class="superform form-inline" id="form{{audit[3]}}">
     <div id="fade{{audit[3]}}">
-    <h6 class="SKUheading">{{audit[4]}}</h6>
-    &nbsp;&nbsp;<img src="{{ url_for('static', filename=audit[3])}}.png"><br>
-
-<div class="container">
-	  <div class="form-group">
-          <input type="hidden" id="outlet{{audit[3]}}" value="{{audit[4]}}">
-	    <label class="sr-only" for="instock">Er dette produktet på lager?</label>
-          <input type="radio" class="form-radio" id="instock{{audit[3]}}" value="yes"><label for="yes">Ja</label>
-          <input type="radio" class="form-radio" id="instock{{audit[3]}}" value="no"><label for="no">Nei</label>
-	  </div>
-	  <div class="form-group">
-	    <label class="sr-only" for="onshelf">Er dette produktet på hyllen?</label>
-          <input type="radio" class="form-radio" id="onshelf{{audit[3]}}" value="yes"><label for="yes">Ja</label>
-          <input type="radio" class="form-radio" id="onshelf{{audit[3]}}" value="no"><label for="no">Nei</label>
-	  </div><button type="submit" class="btn btn-default">Submit</button></form>
-
-	<br>
-</div>
-
-
-    </div></div>
-
-{% endfor %}
---!>
-{% for audit in audits %}
-
-
-<div class="SKU"><form class="superform form-inline" id="form{{audit[3]}}">
-    <div id="fade{{audit[3]}}">
-    <h6 class="SKUheading">{{audit[4]}}</h6>
-    <div style="width: 100%; text-align: center"><img src="{{ url_for('static', filename=audit[3])}}.png"></div>
-        <br>
-
-<div class="container">
+<div class="uk-text-small uk-text-nowrap">{{audit[4]}}</div>
+    <div><img class="uk-margin-small-bottom" src="{{ url_for('static', filename=audit[3])}}.png"></div>
           <div class="form-group">
           <input type="hidden" name="outletid" id="outlet{{audit[3]}}" value="{{outletid}}">
           <input type="hidden" name="period" value="{{period}}">
           <input type="hidden" name="sku" id="sku{{audit[3]}}" value="{{audit[3]}}">
             <label class="sr-only" for="instockyes">Er dette produktet på lager?</label>
-          <label><input type="radio" name="instock" id="instockyes" class="form-radio" value="yes" checked/>Ja</label>
-          <label><input type="radio" name="instock" id="instockno" class="form-radio" value="no" />Nei</label>
+          <label><input type="radio" name="instock" id="instockyes" class="uk-radio form-radio" value="yes" checked/>Ja</label>
+          <label><input type="radio" name="instock" id="instockno" class="uk-radio form-radio" value="no" />Nei</label>
           </div>
           <div class="form-group">
             <label class="sr-only" for="onshelfyes">Er dette produktet på hyllen?</label>
-          <label><input type="radio" name="onshelf" id="onshelfyes" class="form-radio" value="yes" checked/>Ja</label>
-          <label><input type="radio" name="onshelf" id="onshelfno" class="form-radio"value="no" />Nei</label>
-          </div><br><button type="submit" class="btn btn-primary">Registrer</button></form><br>
-
-        <br>
-</div>
+          <label><input type="radio" name="onshelf" id="onshelfyes" class="uk-radio form-radio" value="yes" checked/>Ja</label>
+          <label><input type="radio" name="onshelf" id="onshelfno" class="uk-radio form-radio"value="no" />Nei</label>
+          </div><br><button type="submit" class="uk-button uk-button-primary uk-button-small btn btn-primary">Registrer</button></form><br>
 
 
-    </div></div>
+    </div></div></div>
 
 {% endfor %}
 
 {% endif %}
+
+</div>
+</div>
 
 </body>
 </html>
