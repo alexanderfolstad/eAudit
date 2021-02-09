@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Another Snus Factory</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <script src = "http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin = "anonymous"></script>
+    <script type = text/javascript src = "{{
+        url_for('static', filename = 'js/jquery.js') }}"></script>
+    <script href="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script>
+</head>
+<body style="background-color: #F0F0F0;">
+
+
+<!--<div class="jumbotron text-center" style="height: 120px;background-image: url('{{url_for('static', filename='asf.png')}}');background-repeat: no-repeat;">--!>
+<div class="jumbotron text-center" style="height: 120px;">
+    <br><h1 class="h1header" style="">e-Audit</h1>
+</div>
+	<div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+	<div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+{% if outlet == 0 %}
+<div>Du har kommet et sted du ikke burde være.</div>
+{% else %}
+<div class="outlet">{{outlet}}</div>
+&nbsp;<br>
+<!--
+{% for audit in audits %}
+
+
+<div class="SKU"><form class="form-inline" id="form{{audit[3]}}">
+    <div id="fade{{audit[3]}}">
+    <h6 class="SKUheading">{{audit[4]}}</h6>
+    &nbsp;&nbsp;<img src="{{ url_for('static', filename=audit[3])}}.png"><br>
+
+<div class="container">
+	  <div class="form-group">
+          <input type="hidden" id="outlet{{audit[3]}}" value="{{audit[4]}}">
+	    <label class="sr-only" for="instock">Er dette produktet på lager?</label>
+          <input type="radio" class="form-radio" id="instock{{audit[3]}}" value="yes"><label for="yes">Ja</label>
+          <input type="radio" class="form-radio" id="instock{{audit[3]}}" value="no"><label for="no">Nei</label>
+	  </div>
+	  <div class="form-group">
+	    <label class="sr-only" for="onshelf">Er dette produktet på hyllen?</label>
+          <input type="radio" class="form-radio" id="onshelf{{audit[3]}}" value="yes"><label for="yes">Ja</label>
+          <input type="radio" class="form-radio" id="onshelf{{audit[3]}}" value="no"><label for="no">Nei</label>
+	  </div><button type="submit" class="btn btn-default">Submit</button></form>
+
+	<br>
+</div>
+
+
+    </div></div>
+
+{% endfor %}
+--!>
+{% for audit in audits %}
+
+
+<div class="SKU"><form class="superform form-inline" id="form{{audit[3]}}">
+    <div id="fade{{audit[3]}}">
+    <h6 class="SKUheading">{{audit[4]}}</h6>
+    <div style="width: 100%; text-align: center"><img src="{{ url_for('static', filename=audit[3])}}.png"></div>
+        <br>
+
+<div class="container">
+          <div class="form-group">
+          <input type="hidden" name="outletid" id="outlet{{audit[3]}}" value="{{outletid}}">
+          <input type="hidden" name="period" value="{{period}}">
+          <input type="hidden" name="sku" id="sku{{audit[3]}}" value="{{audit[3]}}">
+            <label class="sr-only" for="instockyes">Er dette produktet på lager?</label>
+          <label><input type="radio" name="instock" id="instockyes" class="form-radio" value="yes" checked/>Ja</label>
+          <label><input type="radio" name="instock" id="instockno" class="form-radio" value="no" />Nei</label>
+          </div>
+          <div class="form-group">
+            <label class="sr-only" for="onshelfyes">Er dette produktet på hyllen?</label>
+          <label><input type="radio" name="onshelf" id="onshelfyes" class="form-radio" value="yes" checked/>Ja</label>
+          <label><input type="radio" name="onshelf" id="onshelfno" class="form-radio"value="no" />Nei</label>
+          </div><br><button type="submit" class="btn btn-primary">Registrer</button></form><br>
+
+        <br>
+</div>
+
+
+    </div></div>
+
+{% endfor %}
+
+{% endif %}
+
+</body>
+</html>

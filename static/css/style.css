@@ -1,0 +1,112 @@
+/* Style the header with a grey background and some padding */
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+}
+
+/* Style the header links */
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+/* Change the background color on mouse-over */
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active/current link*/
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Float the link section to the right */
+.header-right {
+  float: right;
+}
+
+
+.jumbotron {
+  background-color: lightgrey;
+  background-image: url('../asf.png');
+  background-repeat: no-repeat;
+}
+.SKU {
+  margin: 10px;
+  background-color:white;
+  width: 350px;
+  max-width: 25%;
+  box-shadow:20px 20px 10px grey;
+  float: left;
+  align-content: center;
+  padding-left: 2px;
+}
+.SKUheading {
+  color: black;
+  font-size: 15px;
+  font-family: "Arial Black";
+  width: 100%;
+  text-align: center;
+}
+.SKU img {
+    width: 80%;
+    object-fit: cover;
+    overflow: hidden;
+    alignment: center;
+}
+.outlet {
+  margin-top: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  background-color:white;
+  width:99%;
+  box-shadow:20px 20px 10px grey;
+  float: left;
+  align-content: center;
+  text-align: center;
+  font-size: 25px;
+}
+.h1header {
+  color: dimgrey;
+  float:right;
+  margin-right: 20px;
+}
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (orientation:portrait) {
+  .SKU {
+  margin: 10px;
+  background-color:white;
+  max-width: 99%;
+  box-shadow:20px 20px 10px grey;
+  float: left;
+  align-content: center;
+  padding-left: 2px;
+}
+  .jumbotron {
+  background-color: lightgrey;
+  background-image: url('../asf.png');
+  background-repeat: no-repeat;
+  background-size: 90%;
+  }
+  .h1header {
+  color: dimgrey;
+  float:left;
+    margin-top: 50px;
+}
+}
