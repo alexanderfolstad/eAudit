@@ -47,4 +47,4 @@ def process():
 
 
 if __name__ == '__main__':
-    app.run(host='192.168.86.104')
+    app.run()
