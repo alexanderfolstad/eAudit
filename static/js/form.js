@@ -89,7 +89,10 @@ $(document).ready(function() {
                                 //$('#errorAlert').hide();
                                 //$('#fade1').fadeTo("slow", 0.10);
               submitForm.fadeTo("slow",0.1);
-              $(document).scrollTop(submitForm.parent().next().offset().top);
+              //$(document).scrollTop(submitForm.parent().next().offset().top);
+// SCROLL FUNCTION
+
+// END SCROLL FUNCTION
                         }
 
                 });
