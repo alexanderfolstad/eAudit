@@ -18,7 +18,7 @@ def get_Audit(outletid, period):
     print(audit)
     return audit
 
-def insert_Audit(outlet, period, sku, instock, onshelf):
+def insert_Audit(outlet, period, sku, instock, onshelf, label):
     cfg.db_cursor.execute("""
     SELECT 
     * 
@@ -48,9 +48,12 @@ def insert_Audit(outlet, period, sku, instock, onshelf):
         qinstock = 'instock'
         today = date.today()
         qonshelf = 'onshelf'
+        qlabel = 'label'
         cfg.db_cursor.execute("INSERT INTO eAudit_facts VALUES (?, ?, ?, ?, ?, ?)", (outlet, period, sku, qinstock, instock, today)) #
         cfg.conn.commit()
         cfg.db_cursor.execute("INSERT INTO eAudit_facts VALUES (?, ?, ?, ?, ?, ?)", (outlet, period, sku, qonshelf, onshelf, today)) #
+        cfg.conn.commit()
+        cfg.db_cursor.execute("INSERT INTO eAudit_facts VALUES (?, ?, ?, ?, ?, ?)", (outlet, period, sku, qlabel, label, today)) #
         cfg.conn.commit()
     else:
         qinstock = 'instock'
@@ -59,6 +62,8 @@ def insert_Audit(outlet, period, sku, instock, onshelf):
         cfg.db_cursor.execute("INSERT INTO eAudit_facts VALUES (?, ?, ?, ?, ?, ?)", (outlet, period, sku, qinstock, instock, today)) #
         cfg.conn.commit()
         cfg.db_cursor.execute("INSERT INTO eAudit_facts VALUES (?, ?, ?, ?, ?, ?)", (outlet, period, sku, qonshelf, onshelf, today)) #
+        cfg.conn.commit()
+        cfg.db_cursor.execute("INSERT INTO eAudit_facts VALUES (?, ?, ?, ?, ?, ?)", (outlet, period, sku, qlabel, label, today)) #
         cfg.conn.commit()
 
     success = "Success"

@@ -30,13 +30,14 @@ def process():
     sku = request.form['sku']
     instock = request.form['instock']
     onshelf = request.form['onshelf']
+    label = request.form['label']
 
     print(outlet)
     print(period)
     print(sku)
     print(instock)
     print(onshelf)
-    getAuditData.insert_Audit(outlet, period, sku, instock, onshelf)
+    getAuditData.insert_Audit(outlet, period, sku, instock, onshelf, label)
 
     if instock and onshelf:
         outlet = outlet

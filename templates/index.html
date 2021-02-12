@@ -28,7 +28,7 @@
 				<a href="/" class="uk-navbar-item">
 					<img class="uk-animation-scale-up" style="max-height: 60px;" src="{{url_for('static', filename='asf.png')}}" />
 				</a>
-			</div>
+			</div><div class="uk-navbar-right"><button class="uk-button uk-button-default" type="button" uk-toggle="target: #offcanvas-overlay">Hvordan fungerer dette?</button></div>
 			<div class="uk-navbar-right">
 				<span class="uk-h2">
 					e-Audit
@@ -38,7 +38,21 @@
 		</nav>
 	</div>
 	</div>
+
+
 <div class="uk-container">
+
+<div class="uk-width-small" id="offcanvas-overlay" uk-offcanvas="overlay: true;esc-close: true; bg-close: true">
+    <div class="uk-offcanvas-bar uk-width-small" style="padding-left: 5px;">
+
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+    <h3>Instruks:</h3>
+        <span uk-icon="icon: arrow-right"></span><span class="uk-text-small">Start med det første produktet.</span><br>
+        <span uk-icon="icon: arrow-right"></span><span class="uk-text-small">Svar Ja/Nei på alle spørsmål.</span><br>
+        <span uk-icon="icon: arrow-right"></span><span class="uk-text-small">Trykk "Registrer".</span>
+    </div>
+</div>
+
 {% if outlet == 0 %}
     <h1 class="uk-title uk-text-center">Du har kommet et sted du ikke burde være.</h1>
 {% else %}
@@ -48,7 +62,7 @@
 
 
 <div>
-<div class="uk-card uk-card-default uk-card-body uk-animation-scale-up" style="padding-top: 10px;padding-bottom:15px;"><form class="superform form-inline" id="form{{audit[3]}}">
+<div class="uk-card uk-card-default uk-card-body uk-animation-scale-up uk-card-hover" style="padding-top: 10px;padding-bottom:15px;"><form class="superform form-inline" id="form{{audit[3]}}">
     <div id="fade{{audit[3]}}" class="{{audit[3]}}"><div class="container-{{loop.index}}">&nbsp;</div>
 <div class="uk-text-small uk-text-nowrap">{{audit[4]}}</div>
     <div><img class="uk-margin-small-bottom" src="{{ url_for('static', filename=audit[3])}}.png"></div>
@@ -63,11 +77,15 @@
           <div class="form-group">
             <label class="sr-only" for="onshelfyes">Er dette produktet på hyllen?</label>
           <label><input type="radio" name="onshelf" id="onshelfyes" class="uk-radio form-radio" value="yes" checked/>Ja</label>
-          <label><input type="radio" name="onshelf" id="onshelfno" class="uk-radio form-radio"value="no" />Nei</label>
+          <label><input type="radio" name="onshelf" id="onshelfno" class="uk-radio form-radio"value="no" />Nei</label></div>
+          <div class="form-group">
+            <label class="sr-only" for="needlabelsyes">Trenger du hylleetikett?</label><br>
+          <label><input type="radio" name="needlabels" id="needlabelsyes" class="uk-radio form-radio" value="yes" />Ja</label>
+          <label><input type="radio" name="needlabels" id="needlabelsno" class="uk-radio form-radio"value="no" checked/>Nei</label></div>
           </div><br><button type="submit" class="uk-button uk-button-primary uk-button-small btn btn-primary">Registrer</button></form><br>
 
 
-    </div></div></div>
+    </div></div>
 
 {% endfor %}
 
