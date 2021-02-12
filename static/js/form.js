@@ -73,7 +73,7 @@ $(document).ready(function() {
 								sku : submitForm.find('input[name="sku"]').val(),
                                 instock : submitForm.find('input[name="instock"]:checked').val(),
                                 onshelf : submitForm.find('input[name="onshelf"]:checked').val(),
-                                label : submitForm.find('input[name="needlabels"]:checked').val()
+                                label : submitForm.find('input[name="needlabels"]').val()
                         },
                         type : 'POST',
                         url : '/process'

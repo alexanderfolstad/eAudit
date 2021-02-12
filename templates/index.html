@@ -79,9 +79,9 @@
           <label><input type="radio" name="onshelf" id="onshelfyes" class="uk-radio form-radio" value="yes" checked/>Ja</label>
           <label><input type="radio" name="onshelf" id="onshelfno" class="uk-radio form-radio"value="no" />Nei</label></div>
           <div class="form-group">
-            <label class="sr-only" for="needlabelsyes">Trenger du hylleetikett?</label><br>
-          <label><input type="radio" name="needlabels" id="needlabelsyes" class="uk-radio form-radio" value="yes" />Ja</label>
-          <label><input type="radio" name="needlabels" id="needlabelsno" class="uk-radio form-radio"value="no" checked/>Nei</label></div>
+            <label class="sr-only" for="needslabel">Huk av hvis dere trenger hylle-etikett.</label><br>
+          <label><input type="hidden" name="needlabels" id="needslabel" value="0"><input class="uk-checkbox" name="needlabels" id="needslabel" type="checkbox" value="1" onclick="this.previousSibling.value=1-this.previousSibling.value"></label>
+          </div>
           </div><br><button type="submit" class="uk-button uk-button-primary uk-button-small btn btn-primary">Registrer</button></form><br>
 
 

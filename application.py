@@ -32,11 +32,17 @@ def process():
     onshelf = request.form['onshelf']
     label = request.form['label']
 
+    # if label:
+    #     label = label
+    # else:
+    #     label = "Off"
+
     print(outlet)
     print(period)
     print(sku)
     print(instock)
     print(onshelf)
+    print(label)
     getAuditData.insert_Audit(outlet, period, sku, instock, onshelf, label)
 
     if instock and onshelf:
